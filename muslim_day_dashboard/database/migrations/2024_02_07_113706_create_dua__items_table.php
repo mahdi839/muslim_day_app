@@ -17,20 +17,21 @@ return new class extends Migration
             $table->foreign('dua_category_id')->references('id')->on('dua_categories')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
-            $table->string('dua_item_title_en');
+            $table->string('dua_item_title_en')->nullable();
             $table->string('dua_item_title_bn');
             $table->string('subtitle_bn');
-            $table->string('subtitle_en');
+            $table->string('subtitle_en')->nullable();
             $table->longText('dua_item_row_html');
-            $table->string('sanad_en');
+            $table->string('sanad_en')->nullable();
             $table->string('sanad_bn');
-            $table->string('matan_en');
+            $table->string('matan_en')->nullable();
             $table->string('matan_bn');
             $table->string('arabic_dua');
-            $table->string('translation_en');
+            $table->string('translation_en')->nullable();
             $table->string('translation_bn');
-            $table->string('reference_en');
+            $table->string('reference_en')->nullable();
             $table->string('reference_bn');
+            $table->string('explanation');
             $table->timestamps();
         });
     }

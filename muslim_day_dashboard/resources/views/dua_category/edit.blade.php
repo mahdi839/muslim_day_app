@@ -1,4 +1,4 @@
-@extends('back_end.dashboard')
+@extends('dashboard.dashboard')
 @section('backend_header_footer')
     <div class="container mt-5">
         <h2 class="text-center" style="font-family: Poppins;">Update Dua Category</h2>
@@ -11,7 +11,8 @@
             @method('PUT')
             <div class="mb-3 mt-3">
                 <label for="email">Bengali Title</label>
-                <input type="text" class="form-control" id="email" placeholder="Enter Bengali Title" name="title_bn">
+                <input type="text" class="form-control" id="email" placeholder="Enter Bengali Title" name="title_bn"
+                    value="{{ old('title_bn', $dua_category->title_bn) }}">
                 @error('title_bn')
                     <small class="text-danger">{{ $message }}</small>
                 @enderror

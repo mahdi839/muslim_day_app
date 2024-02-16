@@ -1,4 +1,4 @@
-@extends('back_end.dashboard')
+@extends('dashboard.dashboard')
 @section('backend_header_footer')
     <div class="container mt-5">
         <h2 class="text-center" style="font-family: Poppins;">Add Dua Category</h2>
@@ -15,7 +15,7 @@
                     <small class="text-danger">{{ $message }}</small>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Submit </button>
+            <button type="submit" class="btn btn-primary"><i class="fa-solid fa-plus"></i> Add </button>
         </form>
     </div>
 @endsection
