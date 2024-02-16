@@ -89,6 +89,6 @@
 
         </table>
 
-           <button class="btn btn-success">Export</button>
+        <button class="btn btn-success"><i class="fa-solid fa-file-export"></i> Export</button>
     </div>
 @endsection

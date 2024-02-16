@@ -33,6 +33,7 @@ return new class extends Migration
             $table->string('reference_bn');
             $table->string('explanation');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

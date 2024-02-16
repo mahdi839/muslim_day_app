@@ -28,6 +28,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::resource('dua_category', DuaCategoryController::class);
     Route::resource('dua_items', DuaItemController::class);
+    Route::get('/recycle_bin', [DuaItemController::class, 'recycle_bin'])->name('recycle_bin');
+    Route::get('recycle_bin/restore/{id}', [DuaItemController::class, 'dua_items_restore'])->name('dua_items.restore');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });

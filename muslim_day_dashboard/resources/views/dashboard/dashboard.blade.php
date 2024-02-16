@@ -40,7 +40,7 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('dashboard') }}">
 
                 <div class="sidebar-brand-text mx-3">Muslim Day </div>
             </a>
@@ -50,7 +50,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -72,7 +72,7 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
-                    <div class="bg-transperant py-2 collapse-inner rounded">
+                    <div class=" py-2 collapse-inner rounded" style="background: #4167D5">
                         <a class="collapse-item text-light" href="{{ route('dua_category.create') }}"><i
                                 class="fa-solid fa-plus"></i> Add Category</a>
                         <a class="collapse-item text-light" href="{{ route('dua_category.index') }}"> <i
@@ -91,7 +91,7 @@
                 </a>
                 <div id="collapseUtilities1" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
-                    <div class="bg-transperant  py-2 collapse-inner rounded">
+                    <div class="  py-2 collapse-inner rounded" style="background: #4167D5">
                         <a class="collapse-item text-light" href="{{ route('dua_items.create') }}"><i
                                 class="fa-solid fa-plus"></i> Add
                             Content</a>
@@ -102,6 +102,22 @@
                 </div>
             </li>
 
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ asset('backend_assets') }}/#" data-toggle="collapse"
+                    data-target="#collapseUtilities2" aria-expanded="true" aria-controls="collapseUtilities2">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <span>Recycle Bin</span>
+                </a>
+                <div id="collapseUtilities2" class="collapse" aria-labelledby="headingUtilities"
+                    data-parent="#accordionSidebar">
+                    <div class="  py-2 collapse-inner rounded" style="background: #4167D5">
+                        <a class="collapse-item text-light" href="{{ route('recycle_bin') }}"><i
+                                class="fa-solid fa-box-archive"></i> Dua Content Recycle Bin</a>
+
+                    </div>
+                </div>
+            </li>
 
 
 

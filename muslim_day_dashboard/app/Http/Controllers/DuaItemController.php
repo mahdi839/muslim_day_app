@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Validator;
+
 use App\Models\Dua_category;
 
 use App\Models\Dua_Item;
@@ -34,6 +36,8 @@ class DuaItemController extends Controller
     public function store(Request $request)
 
     {
+
+
         $request->validate([
             'select_category' => 'required',
             'dua_item_title_bn' => 'required',
@@ -110,5 +114,16 @@ class DuaItemController extends Controller
         $dua_item =   Dua_Item::where('id', $id)->first();
         $dua_item->delete();
         return back()->with('success', 'Successfully Deleted!');
+    }
+
+    public function recycle_bin()
+    {
+        $delete_items = Dua_Item::onlyTrashed()->get();
+        return view('recycle_bin.recycle_bin', compact('delete_items'));
+    }
+    public function dua_items_restore($id)
+    {
+        Dua_Item::onlyTrashed()->where('id', $id)->restore();
+        return back();
     }
 }
