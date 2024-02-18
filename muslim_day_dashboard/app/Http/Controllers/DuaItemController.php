@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Validator;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Response;
 use App\Models\Dua_category;
 
 use App\Models\Dua_Item;
@@ -114,6 +116,36 @@ class DuaItemController extends Controller
         $dua_item =   Dua_Item::where('id', $id)->first();
         $dua_item->delete();
         return back()->with('success', 'Successfully Deleted!');
+    }
+
+    public function exportDuaItems()
+    {
+        $dua_contents = Dua_Item::all();
+
+        $data = [];
+        foreach ($dua_contents as $contents_item) {
+            $data[] = [
+                'id' => $contents_item->id,
+                'dua_category_id' => $contents_item->dua_category_id,
+                'dua_item_title_bn' => $contents_item->dua_item_title_bn,
+                'subtitle_bn' => $contents_item->subtitle_bn,
+                'arabic_dua' => $contents_item->arabic_dua,
+                'sanad_bn' => $contents_item->sanad_bn,
+                'matan_bn' => $contents_item->matan_bn,
+                'translation_bn' => $contents_item->translation_bn,
+                'reference_bn' => $contents_item->reference_bn,
+                'dua_item_row_html' => $contents_item->dua_item_row_html,
+                'explanation' => $contents_item->explanation,
+                'created_at' => $contents_item->created_at,
+            ];
+        }
+
+        $jsonFileName = 'dua_items_export_' . now()->format('YmdHis') . '.json';
+        $filePath = storage_path('exports/' . $jsonFileName);
+
+        File::put($filePath, json_encode($data, JSON_PRETTY_PRINT));
+
+        return Response::download($filePath, $jsonFileName)->deleteFileAfterSend(true);
     }
 
     public function recycle_bin()

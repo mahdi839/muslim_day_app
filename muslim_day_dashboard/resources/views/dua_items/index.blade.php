@@ -89,6 +89,9 @@
 
         </table>
 
-        <button class="btn btn-success"><i class="fa-solid fa-file-export"></i> Export</button>
+        <button class="btn btn-success" onclick="window.location='{{ route('export-dua-items') }}'">
+            <i class="fa-solid fa-file-export"></i> Export
+        </button>
+
     </div>
 @endsection
