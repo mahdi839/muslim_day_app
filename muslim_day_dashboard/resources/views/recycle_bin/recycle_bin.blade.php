@@ -1,6 +1,6 @@
 @extends('dashboard.dashboard')
 @section('backend_header_footer')
-    <div class="container mt-3">
+    <div class="container-fluid mt-3">
         <h2 class="text-center mt-5 mb-5" style="font-family:Poppins;color:#3E64D3">Deleted Dua Contents</h2>
         @if (session('success'))
             <div class="alert alert-danger">
@@ -42,8 +42,13 @@
                         <td>{{ $delete_item->explanation }}</td>
                         <td>{{ $delete_item->created_at }}</td>
                         <td>
+
                             <a href="{{ route('dua_items.restore', $delete_item->id) }}"
-                                class="btn btn-sm btn-success">Resotre</a>
+                                class="btn btn-sm btn-success p-2">Resotre</a>
+
+                            <a href="{{ route('dua_items.permanent_delete', $delete_item->id) }}"
+                                class="btn btn-sm btn-danger mt-2">Permanent Delete</a>
+
                         </td>
                     </tr>
                 @empty

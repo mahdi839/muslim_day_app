@@ -126,4 +126,11 @@ class DuaItemController extends Controller
         Dua_Item::onlyTrashed()->where('id', $id)->restore();
         return back();
     }
+
+    public function dua_items_permanent_delete($id)
+    {
+
+        Dua_Item::onlyTrashed()->where('id', $id)->forceDelete();
+        return back();
+    }
 }

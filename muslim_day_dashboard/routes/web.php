@@ -30,6 +30,7 @@ Route::middleware('auth')->group(function () {
     Route::resource('dua_items', DuaItemController::class);
     Route::get('/recycle_bin', [DuaItemController::class, 'recycle_bin'])->name('recycle_bin');
     Route::get('recycle_bin/restore/{id}', [DuaItemController::class, 'dua_items_restore'])->name('dua_items.restore');
+    Route::get('recycle_bin/permanent/delete/{id}', [DuaItemController::class, 'dua_items_permanent_delete'])->name('dua_items.permanent_delete');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
